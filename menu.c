@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "tree_menu.h"
 #include "objects.h"
+#include <stdio.h>
 
 #define TM_MENU_SIZE 66
 const TM_Unit menu[TM_MENU_SIZE]={
@@ -90,6 +91,7 @@ TM_Param params[TM_MENU_SIZE]={
 };
 
 void PrintMenu(int index, TM_DeepLevel DeepLevel);
+void ChangeParam(int index);
 
 TM_Config main_cfg;
 KBD_Buttons PressedKey;
@@ -100,6 +102,7 @@ void FSM_MenuInit() {
 	main_cfg.Menus = menu;
 	main_cfg.Params = params;
 	main_cfg.PrintCallback = PrintMenu;
+	main_cfg.ChangeCallback = ChangeParam;
 	InitMenu(&main_cfg);
 	PressedKey = -1;
 	LastItem = 1; // значение нужно такое, чтоб в первый раз гарантированно обновить заголовок меню. id родителя != -1
@@ -135,8 +138,10 @@ void FSM_MenuProcess() {
 }
 
 void PrintItem(int arr_idx, int Position, int selected) {
-	TFT_DrawText(10, 26 + 26 + 2 + 2 + 26 * Position, menu[arr_idx].name,
-			&Courier_New_Bold16x26, clBlack, (selected) ? clUltra : clWhite, 1);
+//	TFT_DrawText(10, 26 + 26 + 2 + 2 + 26 * Position, menu[arr_idx].name,
+//			&Courier_New_Bold16x26, clBlack, (selected) ? clUltra : clWhite, 1);
+	TFT_DrawText2(10, 26 + 26 + 2 + 2 + 26 * Position, menu[arr_idx].name,
+			Times_New_Roman_Regular_16, clBlack, (selected) ? clUltra : clWhite, 1);
 }
 
 void PrintPage(int index) {
@@ -172,6 +177,14 @@ void PrintPage(int index) {
 
 }
 
+void PrintEdit(int index){
+	char tmp[20];
+	sprintf(tmp,"%d",params[index].value);
+	TFT_DrawText(150,200,tmp,&Courier_New_Bold16x26,clBlack,clWhite,1);
+	sprintf(tmp,"%d",params[index].delta);
+	TFT_DrawText(150,170,tmp,&Courier_New_Bold16x26,clBlack,clWhite,1);
+}
+
 void PrintMenu(int index, TM_DeepLevel DeepLevel) {
 // printing function prototype
 	switch (DeepLevel) {
@@ -179,7 +192,7 @@ void PrintMenu(int index, TM_DeepLevel DeepLevel) {
 		PrintPage(index);
 		break;
 	case DL_DELTA: // print param with cursor on symbol which will be change
-
+		PrintEdit(index);
 		break;
 	case DL_PARAM: // print param with cursor on symbol which changing
 
