@@ -5,7 +5,7 @@
 
 #define TM_MENU_SIZE 66
 const TM_Unit menu[TM_MENU_SIZE]={
-  {-1, false, "УЗД", 0, 0, 0, 0},
+  {-1, false, "УЗ\x03""23\x1Д", 0, 0, 0, 0},
     {0, false, "АРУ", 0, 0, 0, 0},
       {1, true, "значение", 0, 4095, 1, 1000},
       {1, true, "вкл", 0, 3, 1, 1},
