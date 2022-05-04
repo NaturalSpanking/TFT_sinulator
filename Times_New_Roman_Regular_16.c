@@ -355,7 +355,7 @@ static const unsigned char _U_2078[] = {0x03, 0xF0, 0x03, 0x00, 0x50, 0x02, 0x00
 /* U+2079 - SUPERSCRIPT NINE */
 static const unsigned char _U_2079[] = {0x04, 0x20, 0x02, 0x00, 0x50, 0x02, 0x00, 0x50, 0x03, 0x00, 0xF0, 0x01, 0x00, };
 
-static const TFontTable _Super = {
+static const TFontTable _Superscript = {
 	'1',
 	{ _U_2070, _U_00B9, _U_00B2, _U_00B3, _U_2074, _U_2075, _U_2076, _U_2077, _U_2078, _U_2079, }
 };
@@ -363,7 +363,7 @@ static const TFontTable _Super = {
 
 static const TFont _Times_New_Roman_Regular_16 = {
 	18, 32, 3,
-	{&_ASCII, &_Cyrillic, &_Super, }
+	{&_ASCII, &_Cyrillic, &_Superscript, }
 };
 
 const PFont Times_New_Roman_Regular_16 = &_Times_New_Roman_Regular_16;
