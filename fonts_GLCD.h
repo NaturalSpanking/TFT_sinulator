@@ -23,20 +23,6 @@ typedef struct {
 	const unsigned char *data_ru;		// указатель на массив русских символов
 } FontGLCD_t;
 
-typedef struct {
-	unsigned char FirstChar;
-	const unsigned char *Chars[];
-} TFontTable;
-
-typedef struct {
-	unsigned char Height;
-	unsigned char Width;
-	unsigned char BPC; // bytes per column
-	const TFontTable *Tables[];
-} TFont;
-
-typedef const TFont *PFont;
-
 // Тут перечислить нужные шрифты
 #define CONSOLAS_9X16 		1
 #define COURIER_NEW_16X26	1
@@ -63,7 +49,5 @@ extern const FontGLCD_t ISOCPEUR19x35;
 #if COMIC_SANS_MS_20X24
 extern const FontGLCD_t Comic_Sans_MS20x24;
 #endif
-
-extern const PFont Times_New_Roman_Regular_16;
 
 #endif /* FONTS_GLCD_H_ */

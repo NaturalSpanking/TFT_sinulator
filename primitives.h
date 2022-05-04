@@ -7,6 +7,7 @@
 
 #include <stdint.h>
 #include "fonts_GLCD.h"
+#include "NS_fonts.h"
 
 #define TFT_W 320
 #define TFT_H 240
