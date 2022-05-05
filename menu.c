@@ -141,7 +141,7 @@ void PrintItem(int arr_idx, int Position, int selected) {
 //	TFT_DrawText(10, 26 + 26 + 2 + 2 + 26 * Position, menu[arr_idx].name,
 //			&Courier_New_Bold16x26, clBlack, (selected) ? clUltra : clWhite, 1);
 	TFT_DrawText2(10, 26 + 26 + 2 + 2 + 26 * Position, menu[arr_idx].name,
-			Times_New_Roman_Regular_16, clBlack, (selected) ? clUltra : clWhite, 1);
+			Times_New_Roman_Regular_30, clBlack, (selected) ? clUltra : clWhite, 1);
 }
 
 void PrintPage(int index) {

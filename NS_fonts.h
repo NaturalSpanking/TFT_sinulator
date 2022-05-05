@@ -9,7 +9,7 @@
 #define NS_FONTS_H_
 
 typedef struct {
-	unsigned char FirstChar;
+	char FirstChar;
 	const unsigned char *Chars[];
 } TFontTable;
 
@@ -25,5 +25,6 @@ typedef const TFont *PFont;
 
 
 extern const PFont Times_New_Roman_Regular_16;
+extern const PFont Times_New_Roman_Regular_30;
 
 #endif /* NS_FONTS_H_ */

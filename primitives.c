@@ -179,13 +179,13 @@ TBitmapText* MakeTextBitmap2(const char *text, const PFont font, EColor color,
 		if (chart>1){
 			table = font->Tables[chart];
 		}else{
-			if ((uint8_t)text[i] >= font->Tables[1]->FirstChar) {	//проверка языка
+			if ((uint8_t)text[i] >= (uint8_t)font->Tables[1]->FirstChar) {	//проверка языка
 				table = font->Tables[1];
 			} else {
 				table = font->Tables[0];
 			}
 		}
-		char_index = (uint8_t)text[i] - table->FirstChar;// индекс символа в массиве шрифтов
+		char_index = (uint8_t)text[i] - (uint8_t)table->FirstChar;// индекс символа в массиве шрифтов
 		ret->width += table->Chars[char_index][0] + extra_space;
 	}
 	/*
@@ -217,13 +217,13 @@ TBitmapText* MakeTextBitmap2(const char *text, const PFont font, EColor color,
 				if (chart>1){
 					table = font->Tables[chart];
 				}else{
-					if ((uint8_t)text[simv] >= font->Tables[1]->FirstChar) {	//проверка языка
+					if ((uint8_t)text[simv] >= (uint8_t)font->Tables[1]->FirstChar) {	//проверка языка
 						table = font->Tables[1];
 					} else {
 						table = font->Tables[0];
 					}
 				}
-				char_index = (uint8_t)text[simv] - table->FirstChar;// индекс символа в массиве шрифтов
+				char_index = (uint8_t)text[simv] - (uint8_t)table->FirstChar;// индекс символа в массиве шрифтов
 
 
 		int col_index = 1; // индекс первого столбца символа в массиве шрифта, размером bytes_per_column
